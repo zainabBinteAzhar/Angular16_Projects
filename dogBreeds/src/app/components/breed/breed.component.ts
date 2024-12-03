@@ -1,3 +1,4 @@
+// src/app/breed/breed.component.ts
 import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/shared/data.service';
 
@@ -6,28 +7,27 @@ import { DataService } from 'src/app/shared/data.service';
   templateUrl: './breed.component.html',
 })
 export class BreedComponent implements OnInit {
-  breedImages: string[] = [];
+  dogImages = this.dogImageService.getDogImages();
   isButtonDisabled = false;
 
-  constructor(private data: DataService) {}
+  constructor(private dogImageService: DataService) {}
 
   ngOnInit(): void {
-    this.loadBreedImages();
+    // Initially fetch a dog image
+    this.dogImageService.fetchDogImages();
   }
 
-  loadBreedImages(): void {
-    this.isButtonDisabled = true;
+  // Fetch a new dog image
+  fetchDogImage(): void {
+    this.dogImageService.getDogImages();
+  }
 
-    this.data.getImageByBreed().subscribe(
-      (response) => {
-        this.breedImages = response.map((img: any) => img.url);
-      },
-      (error) => {
-        console.log('ERROR FETCHING IMAGES: ', error.message);
-      }
-    );
+  // Delete the last dog image
+  deleteLastImage(): void {
+    this.isButtonDisabled = true;
+    this.dogImageService.deleteLastImage();
     setTimeout(() => {
       this.isButtonDisabled = false;
-    }, 3000);
+    }, 2000);
   }
 }

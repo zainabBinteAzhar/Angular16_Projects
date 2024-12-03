@@ -1,35 +1,39 @@
-<div class="border-fuchsia-800 border-2 p-2 m-2 flex flex-col items-center">
+<!-- src/app/breed/breed.component.html -->
+<div class=" p-2 m-2 flex flex-col gap-2 bg-blue-200">
+  <div class="flex justify-center ">
     <button
-      class="rounded p-2 m-2 hover:scale-105 text-xs"
-      (click)="loadBreedImages()"
+      class="text-base font-medium rounded p-2 m-2 hover:scale-105"
+      (click)="deleteLastImage()"
       [ngClass]="{
         'bg-gray-500 text-gray-100': isButtonDisabled,
-        'bg-black text-white hover:scale-105': !isButtonDisabled
+        'bg-red-600 text-white hover:scale-105': !isButtonDisabled
       }"
       [disabled]="isButtonDisabled"
     >
-      Reload Images
+      Delete
     </button>
-  
-    <div *ngIf="breedImages.length > 0; else noImages">
-      <div class="flex flex-wrap">
-        <div
-          *ngFor="let image of breedImages"
-          class="flex w-1/3 p-2 justify-evenly"
-        >
-          <div class="relative w-72 h-48">
-            <img
-              [src]="image"
-              alt="BREED dog"
-              class="absolute inset-0 w-full h-full object-cover rounded-lg"
-            />
-          </div>
+  </div>
+
+  <!-- Check if there are any dog images -->
+  <div *ngIf="dogImages().length > 0; else noImages">
+    <div class="flex flex-wrap">
+      <div
+        *ngFor="let image of dogImages()"
+        class="flex w-1/3 p-2 justify-evenly"
+      >
+        <div class="relative w-72 h-48">
+          <img
+            [src]="image"
+            alt="BREED dog"
+            class="absolute inset-0 w-full h-full object-cover rounded-lg"
+          />
         </div>
       </div>
     </div>
-  
-    <ng-template #noImages>
-      <p class="text-red-600">ERROR: no images found!</p>
-    </ng-template>
   </div>
-  
+
+  <!-- Fallback message if no images -->
+  <ng-template #noImages>
+    <p class="text-pink-950 text-lg">No images found!</p>
+  </ng-template>
+</div>
