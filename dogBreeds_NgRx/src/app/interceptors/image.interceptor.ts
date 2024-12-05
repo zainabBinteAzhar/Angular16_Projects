@@ -23,8 +23,8 @@ export class ImageInterceptor implements HttpInterceptor {
           event instanceof HttpResponse &&
           req.url.includes('https://api.thedogapi.com/v1/images/search')
         ) {
-          // return only first 5 images
-          const modifiedBody = event.body.slice(0, 5);
+          // return only first 6 images
+          const modifiedBody = event.body.slice(0, 6);
           return event.clone({ body: modifiedBody });
         }
         return event; // if No! returns the original event.
