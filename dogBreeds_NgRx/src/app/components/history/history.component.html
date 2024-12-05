@@ -1,0 +1,29 @@
+<div class="flex flex-col p-3 gap-2">
+    <div class="flex justify-evenly">
+      <p class="text-pink-700">HISTORY</p>
+      <button
+        class="text-base font-medium rounded p-2 hover:scale-105"
+        (click)="restoreImage()"
+        [ngClass]="{
+          'bg-gray-500 text-gray-100': isButtonDisabled,
+          'bg-green-600 text-white hover:scale-105': !isButtonDisabled
+        }"
+      >
+        Restore
+      </button>
+    </div>
+  
+    <div class="border-green-600 border-2 flex flex-wrap gap-2">
+      <div *ngFor="let image of deletedImages" class="relative w-72 h-48">
+        <img
+          [src]="image.url"
+          alt="BREED dog"
+          class="absolute inset-0 w-full h-full object-cover rounded-lg"
+        />
+      </div>
+      <ng-template #noImages>
+        <p class="text-red-600">ERROR: no images found!</p>
+      </ng-template>
+    </div>
+  </div>
+  

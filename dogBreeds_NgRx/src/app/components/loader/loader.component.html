@@ -1,0 +1,31 @@
+<div *ngIf="isLoading" class="fixed inset-0 flex justify-center items-center bg-pink-900 bg-opacity-50 z-50">
+    <div class="flex space-x-2">
+        <div class="w-5 h-5 bg-red-600 rounded-full animate-bubble"></div>
+        <div class="w-5 h-5 bg-red-600 rounded-full animate-bubble delay-200"></div>
+        <div class="w-5 h-5 bg-red-600 rounded-full animate-bubble delay-400"></div>
+    </div>
+</div>
+  
+  <style>
+    @keyframes bubble {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-12px);
+      }
+    }
+  
+    .animate-bubble {
+      animation: bubble 1s infinite ease-in-out;
+    }
+  
+    .animate-bubble.delay-200 {
+      animation-delay: 0.2s;
+    }
+  
+    .animate-bubble.delay-400 {
+      animation-delay: 0.4s;
+    }
+  </style>
+  
