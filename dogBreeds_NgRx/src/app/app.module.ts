@@ -9,6 +9,7 @@ import { LoaderService } from './shared/loader.service';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { LoaderInterceptor } from './interceptors/loader.interceptor';
 import { ImageInterceptor } from './interceptors/image.interceptor';
+
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { BreedComponent } from './components/breed/breed.component';
@@ -33,7 +34,7 @@ import { BreedEffects } from './effects/breed.effects';
   ],
   providers: [
     LoaderService,
-    { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi:true },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: ImageInterceptor,

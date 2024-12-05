@@ -4,23 +4,21 @@
     <button
       class="text-base font-medium rounded p-2 hover:scale-105 bg-green-500 text-white"
       (click)="restoreImage()"
-     
-      [disabled]="isButtonDisabled"
     >
       Restore
     </button>
   </div>
 
-  <div class="border-green-600 border-2 flex flex-wrap gap-2">
-    <div *ngIf="deletedImages$ | async as deletedImages; else noHistory">
-      <div *ngFor="let image of deletedImages" class="relative w-72 h-48">
+  <div class="border-green-600 border-2 flex flex-row flex-wrap gap-4 overflow-x-auto p-2">
+    <ng-container *ngIf="deletedImages$ | async as deletedImages; else noHistory">
+      <div *ngFor="let image of deletedImages" class="relative w-72 h-48 flex-shrink-0">
         <img
           [src]="image.url"
           alt="BREED dog"
           class="absolute inset-0 w-full h-full object-cover rounded-lg"
         />
       </div>
-    </div>
+    </ng-container>
 
     <ng-template #noHistory>
       <p class="text-red-600">ERROR: no images found!</p>

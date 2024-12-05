@@ -9,7 +9,7 @@ import * as BreedActions from '../../actions/breed.actions';
   templateUrl: './breed.component.html',
 })
 export class BreedComponent implements OnInit {
-  images$: Observable<any[]> | undefined;  
+  images$!: Observable<any[]>;  
 
   constructor(private store: Store) {}
 

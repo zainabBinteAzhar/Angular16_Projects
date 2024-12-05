@@ -10,18 +10,12 @@ import { selectHistory } from '../../selectors/breed.selectors';  // Import the 
 })
 export class HistoryComponent implements OnInit {
   deletedImages$!: Observable<any[]>;  // Declare the observable for deleted images
-  isButtonDisabled: boolean = false;  // Flag to disable restore button
 
   constructor(private store: Store, private breedService: DataService) {}
 
   ngOnInit(): void {
     // Select deleted images from the store using the selector
     this.deletedImages$ = this.store.select(selectHistory);
-
-    // Subscribe to deleted images to manage the restore button state
-    this.deletedImages$.subscribe((deletedImages) => {
-      this.isButtonDisabled = deletedImages.length === 0;
-    });
   }
 
   restoreImage(): void {

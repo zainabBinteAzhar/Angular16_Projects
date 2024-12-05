@@ -4,7 +4,7 @@ import { of } from 'rxjs';
 import { catchError, map, switchMap } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import * as BreedActions from '../actions/breed.actions';
-import { createEffect } from '@ngrx/effects';  // <-- Import createEffect
+import { createEffect } from '@ngrx/effects';
 
 @Injectable()
 export class BreedEffects {
@@ -14,11 +14,16 @@ export class BreedEffects {
 
   loadImages$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(BreedActions.loadImages), // Listen for the loadImages action
+      //ofType:listens for specific action.
+      ofType(BreedActions.loadImages), //listen for the loadImages action
+
+      //switchMap listens for the loadImages action, then switches to a new observable:
+      //it ensures that only the most recent HTTP request will be processed, canceling any previous requests that were still ongoing.
+      // If the user dispatches the loadImages action multiple times, only the latest request will be handled
       switchMap(() =>
         this.http.get<any[]>(this.apiUrl).pipe(
-          map((images) => BreedActions.loadImagesSuccess({ images })), // On success, dispatch loadImagesSuccess
-          catchError((error) => of(BreedActions.loadImagesFailure({ error }))) // On error, dispatch loadImagesFailure
+          map((images) => BreedActions.loadImagesSuccess({ images })), //when img get loaded:success
+          catchError((error) => of(BreedActions.loadImagesFailure({ error }))) //error
         )
       )
     )
