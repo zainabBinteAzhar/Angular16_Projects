@@ -9,7 +9,7 @@
     </button>
   </div>
 
-  <div class="border-green-600 border-2 flex flex-row flex-wrap gap-4 overflow-x-auto p-2">
+  <div class=" flex flex-row flex-wrap gap-4 overflow-x-auto p-2">
     <ng-container *ngIf="deletedImages$ | async as deletedImages; else noHistory">
       <div *ngFor="let image of deletedImages" class="relative w-72 h-48 flex-shrink-0">
         <img
