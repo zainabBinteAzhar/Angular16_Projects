@@ -100,9 +100,9 @@ import { trigger, state, style, transition, animate, keyframes, stagger, query }
 })
 export class TestComponent {
   isVisible = true;
-  isActive = false;
+  isActive = true;
   isFlipped = false;
-  isCollapsed = true;
+  isCollapsed = false;
   items = [1, 2, 3];
 
   toggleVisibility() {
