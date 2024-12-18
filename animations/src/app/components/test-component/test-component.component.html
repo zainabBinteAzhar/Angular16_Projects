@@ -1,0 +1,56 @@
+<div class="main">
+  <!-- First Column: Buttons and State Transition -->
+  <div class="left">
+    <button (click)="toggleVisibility()" class="button">
+      Toggle Visibility
+    </button>
+    <button (click)="toggleState()" class="button">Toggle State</button>
+    <button (click)="toggleCollapse()" class="button">
+      Toggle Collapse/Expand
+    </button>
+
+    <!-- State-based animation -->
+    <div [@stateTransition]="isActive ? 'active' : 'inactive'" class="box">
+      State
+    </div>
+    <div
+      class="collapsible"
+      [@collapseExpand]="isCollapsed ? 'collapsed' : 'expanded'"
+    >
+      <p>
+        This content is collapsible. Click the button below to expand or
+        collapse it.
+      </p>
+    </div>
+  </div>
+
+  <!-- Second Column: -->
+  <div class="container">
+    <div *ngIf="isVisible" @fadeInOut class="box">Fade In/Out</div>
+
+    <!-- Slide In/Out Animation -->
+    <div *ngIf="isVisible" @slideInOut class="box">Slide In/Out</div>
+
+    <!-- Staggered List Animation -->
+    <div *ngIf="isVisible" @staggeredList class="list">
+      <div class="item" *ngFor="let item of items">Item {{ item }}</div>
+    </div>
+  </div>
+
+  <!-- Third Column: -->
+  <div class="flip-column">
+    <!-- Flip Animation -->
+    <div class="flip-container" (click)="toggleFlip()">
+      <div class="flip-box" [@flip]="isFlipped ? 'flipped' : 'normal'">
+        <div class="flip-box-front">Front</div>
+        <div class="flip-box-back">Back</div>
+      </div>
+    </div>
+    <button (click)="toggleFlip()">Flip</button>
+
+    <!-- Rotate -->
+    <div *ngIf="isVisible" @rotate class="box">Rotate Me</div>
+    <!-- Bounce -->
+    <div *ngIf="isVisible" @bounce class="box">Bounce In</div>
+  </div>
+</div>

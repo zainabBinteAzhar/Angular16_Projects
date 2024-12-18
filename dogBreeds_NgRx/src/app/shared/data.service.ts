@@ -23,6 +23,7 @@ export class DataService {
 
   // Dispatch action to delete image
   deleteImage(image: any): void {
+    debugger
     this.store.dispatch(BreedActions.deleteImage({ image }));
   }
 

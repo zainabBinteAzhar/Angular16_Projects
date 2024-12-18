@@ -18,6 +18,7 @@ export class BreedComponent implements OnInit {
   }
 
   deleteImage(image: any): void {
+    debugger
     this.store.dispatch(BreedActions.deleteImage({ image }));  // Dispatch delete action
   }
 }
