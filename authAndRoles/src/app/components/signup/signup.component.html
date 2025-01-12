@@ -1,0 +1,131 @@
+<div class="login-container">
+    <div *ngIf="registrationSuccess" class="alert-popup show">
+        <div class="alert-popup-content">
+          Registered successfully!
+        </div>
+      </div>
+  
+    <div class="login-box">
+      <h2>Sign Up</h2>
+      <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <input
+            type="text"
+            formControlName="username"
+            placeholder="Username"
+            class="form-control"
+            [class.error]="isFieldInvalid('username')"
+          />
+          <div class="error-message" *ngIf="isFieldInvalid('username')">
+            <span *ngIf="signupForm.get('username')?.errors?.['required']">
+              Username is required
+            </span>
+            <span *ngIf="signupForm.get('username')?.errors?.['minlength']">
+              Username must be at least 3 characters
+            </span>
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <input
+            type="email"
+            formControlName="email"
+            placeholder="Email"
+            class="form-control"
+            [class.error]="isFieldInvalid('email')"
+          />
+          <div class="error-message" *ngIf="isFieldInvalid('email')">
+            <span *ngIf="signupForm.get('email')?.errors?.['required']">
+              Email is required
+            </span>
+            <span *ngIf="signupForm.get('email')?.errors?.['email']">
+              Please enter a valid email
+            </span>
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <div class="input-group">
+            <input
+              [type]="showPassword ? 'text' : 'password'"
+              formControlName="password"
+              placeholder="Password"
+              class="form-control"
+              [class.error]="isFieldInvalid('password')"
+            />
+            <button
+              type="button"
+              class="password-toggle"
+              (click)="togglePassword()"
+            >
+              <img
+                [src]="showPassword ? 'assets/eyeShow.png' : 'assets/eyeHide.png'"
+                class="icon-size"
+              />
+            </button>
+          </div>
+          <div class="error-message" *ngIf="isFieldInvalid('password')">
+            <span *ngIf="signupForm.get('password')?.errors?.['required']">
+              Password is required
+            </span>
+            <span *ngIf="signupForm.get('password')?.errors?.['minlength']">
+              Password must be at least 8 characters
+            </span>
+            <span *ngIf="signupForm.get('password')?.errors?.['pattern']">
+              Password must contain at least one uppercase letter, one lowercase
+              letter, one number, and one special character
+            </span>
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <div class="input-group">
+            <input
+              [type]="showConfirmPassword ? 'text' : 'password'"
+              formControlName="confirmPassword"
+              placeholder="Confirm Password"
+              class="form-control"
+              [class.error]="isFieldInvalid('confirmPassword')"
+            />
+            <button
+              type="button"
+              class="password-toggle"
+              (click)="toggleConfirmPassword()"
+            >
+              <img
+                [src]="
+                  showConfirmPassword
+                    ? 'assets/eyeShow.png'
+                    : 'assets/eyeHide.png'
+                "
+                class="icon-size"
+              />
+            </button>
+          </div>
+          <div class="error-message" *ngIf="isFieldInvalid('confirmPassword')">
+            <span *ngIf="signupForm.get('confirmPassword')?.errors?.['required']">
+              Confirm Password is required
+            </span>
+            <span
+              *ngIf="signupForm.get('confirmPassword')?.errors?.['passwordMismatch']"
+            >
+              Passwords do not match
+            </span>
+          </div>
+        </div>
+  
+        <button
+          type="submit"
+          class="login-button"
+          [disabled]="signupForm.invalid"
+        >
+          Sign Up
+        </button>
+  
+        <div class="signup-link">
+          Already have an account? <a href="login">Login</a>
+        </div>
+      </form>
+    </div>
+  </div>
+  

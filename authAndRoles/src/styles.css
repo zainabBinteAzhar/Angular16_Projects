@@ -1,1 +1,170 @@
-/* You can add global styles to this file, and also import other style files */
+/* General reset and styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+      Arial, sans-serif;
+  }
+  
+  /* Main container for login page */
+  .login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #7c69ef 0%, #9b7aea 100%);
+  }
+  
+  /* Box styling for the login form */
+  .login-box {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    margin: 1rem;
+  }
+  
+  /* Header style */
+  h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #333;
+    font-size: 1.5rem;
+  }
+  
+  /* Icon size for password toggle */
+  .icon-size {
+    width: 20px;
+    height: 20px;
+  }
+  
+  /* Form group styling */
+  .form-group {
+    position: relative;
+    margin-bottom: 1rem;
+  }
+  
+  .input-group {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+  
+  /* General input styles */
+  .form-control {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+  }
+  
+  .form-control:focus {
+    outline: none;
+    border-color: #7c69ef;
+  }
+  
+  .form-control.error {
+    border-color: #dc3545;
+  }
+  
+  /* Error message styling */
+  .error-message {
+    color: #dc3545;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    min-height: 1.25rem;
+  }
+  
+  /* Password toggle button styling */
+  .password-toggle {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    user-select: none;
+    font-size: 1.2rem;
+    background: none;
+    border: none;
+    padding: 0;
+    z-index: 2;
+  }
+  
+  /* Forgot password link styling */
+  .forgot-password {
+    text-align: right;
+    margin-bottom: 1rem;
+  }
+  
+  .forgot-password a {
+    color: #7c69ef;
+    text-decoration: none;
+    font-size: 0.9rem;
+  }
+  
+  /* Submit button styling */
+  .login-button {
+    width: 100%;
+    padding: 0.75rem;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s, opacity 0.2s;
+  }
+  
+  .login-button:hover {
+    background: #0056b3;
+  }
+  
+  .login-button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+  
+  /* Signup link at the bottom */
+  .signup-link {
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .signup-link a {
+    color: #7c69ef;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+ /* Success alert styling */
+.alert-popup {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    background-color: #28a745;  /* Green background */
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 16px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    opacity: 0;       /* Initially hidden */
+    visibility: hidden;  /* Initially hidden */
+    transition: opacity 0.5s ease, visibility 0.5s ease; /* Smooth fade */
+  }
+  
+  .alert-popup.show {
+    opacity: 1;       /* Show the alert */
+    visibility: visible;  /* Make it visible */
+  }
+  
+  /* General styles for form and container remain unchanged */
+  

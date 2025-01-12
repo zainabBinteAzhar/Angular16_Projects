@@ -1,0 +1,50 @@
+<div class="login-container">
+
+
+    <div *ngIf="loginSuccess" class="alert-popup show">
+        <div class="alert-popup-content">
+          Logged In successfully!
+        </div>
+      </div>
+
+    <div class="login-box">
+      <h2>Login</h2>
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <input 
+            type="text" 
+            formControlName="username" 
+            placeholder="Username"
+            class="form-control"
+            [class.error]="isFieldInvalid('username')">
+          <div class="error-message" *ngIf="isFieldInvalid('username')">
+            Username is required
+          </div>
+        </div>
+        <div class="form-group">
+          <input 
+            [type]="showPassword ? 'text' : 'password'" 
+            formControlName="password" 
+            placeholder="Password"
+            class="form-control"
+            [class.error]="isFieldInvalid('password')">
+          <span 
+            class="password-toggle" 
+            (click)="togglePassword()">
+            <img [src]="showPassword ? 'assets/eyeShow.png' : 'assets/eyeHide.png'" class="icon-size"/>
+          </span>
+          <div class="error-message" *ngIf="isFieldInvalid('password')">
+            Password is required
+          </div>
+        </div>
+        <div class="forgot-password">
+          <a href="#">Forget Password?</a>
+        </div>
+        <button type="submit" class="login-button" [disabled]="loginForm.invalid">Login</button>
+        <div class="signup-link">
+          Don't have account? <a href="signup">Sign Up</a>
+        </div>
+      </form>
+    </div>
+  </div>
+          
