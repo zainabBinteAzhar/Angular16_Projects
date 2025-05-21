@@ -1,47 +1,92 @@
-# Angular16
+# Angular 16 Mini Projects
 
-BreedDogs_NgRx process:
+This repository contains **five Angular 16 mini projects**, each demonstrating different Angular features such as animations, state management with NgRx, authentication, and server-side rendering (SSR).
 
-App Initialization:
+---
 
-Angular app initializes, and the AppModule is loaded.
-Both interceptors (LimitImagesInterceptor and LoaderInterceptor) are registered globally in AppModule under HTTP_INTERCEPTORS.
-Image Fetching:
+## ⚙️ Requirements
+bash
+Copy
+Edit
+# Angular CLI v16 or higher
+# Node.js v16 or higher
+# npm (or yarn) installed
 
-User navigates to the Breed Component.
-The BreedComponent dispatches the loadImages action to load images from the API.
-The BreedEffects listens for the loadImages action and triggers the API call.
-The HTTP request goes through the LimitImagesInterceptor:
-Limits the number of images to 5 by modifying the request.
-The request then passes through the LoaderInterceptor:
-Shows a loader spinner while waiting for the API response.
-The modified request is sent to the server.
-API Response Handling:
+## 📝 Notes
+text
+Copy
+Edit
+- These are learning/demo projects to explore new Angular 16 features.
+- Use them as lightweight templates or for your personal learning.
 
-The server responds with 5 images (due to the limit set by the interceptor).
-The response passes through the LoaderInterceptor:
-The loader is hidden once the response is received.
-The response is passed to the BreedEffects, which dispatches the loadImagesSuccess action.
-The images are stored in the NgRx Store.
-Displaying Images:
+## 📁 Projects Overview
 
-The BreedComponent selects the images from the NgRx store using the selectImages selector.
-The images are displayed in the BreedComponent.
-Deleting Images:
+### 1. 🎬 animations
 
-User clicks on the Delete button in the BreedComponent.
-The deleteImage method is called, and the image is moved to the History Component.
-The BreedComponent dispatches the deleteImage action to update the store.
-The store updates the list of images and the deleted images list.
-Restoring Images:
+> Demonstrates various Angular animation techniques.
 
-User clicks the Restore button in the HistoryComponent.
-The restoreImage method is called, restoring the first deleted image.
-The image is moved back to the BreedComponent.
-The HistoryComponent dispatches the restoreImage action to update the store.
-The store updates the images list by moving the restored image to the top.
-Interceptor Actions:
+**Highlights:**
+- Applied multiple Angular animations
+- Smooth and interactive UI effects
 
-LimitImagesInterceptor ensures only the first 5 images are returned in the API response.
-LoaderInterceptor shows a spinner during the HTTP request and hides it once the response is received.
-<!-- *********************************************************************************************** -->
+---
+
+### 2. 🔐 AuthAndRole
+
+> Authentication and role-based access project.
+
+**Details:**
+- Login and Signup forms with UI and validation completed
+- Initialized auth and roles management
+
+---
+
+### 3. 🐕 dogBreeds
+
+> State management and RxJS example app.
+
+**Features:**
+- Initialized state management with NgRx
+- Implemented signals, delete and restore buttons
+- Additional UI improvements
+- Shows all dog images using RxJS observables and HTTPClient
+
+---
+
+### 4. 🐕 dogBreeds_NgRx
+
+> Advanced state management and animations with SSR.
+
+**Features:**
+- Animations implemented
+- Server-Side Rendering (SSR) enabled with two pages created
+- Various improvements and task completions
+- Cloned tasks for practice
+- State management initialized with NgRx
+
+---
+
+### 5. 📒 noteBook
+
+> Note-taking app with SSR support.
+
+**Features:**
+- Implemented Server-Side Rendering (SSR)
+- Created two functional pages
+
+---
+
+## 🚀 Getting Started
+
+```bash
+# Clone the repository
+git clone https://github.com/zainabBinteAzhar/angular-16-mini-projects.git
+
+# Navigate to a project directory
+cd animations   # or cd AuthAndRole, cd dogBreeds, cd dogBreeds_NgRx, cd noteBook
+
+# Install dependencies
+npm install
+
+# Run the development server
+ng serve
