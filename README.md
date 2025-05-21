@@ -5,17 +5,13 @@ This repository contains **five Angular 16 mini projects**, each demonstrating d
 ---
 
 ## ⚙️ Requirements
-bash
-Copy
-Edit
-# Angular CLI v16 or higher
-# Node.js v16 or higher
-# npm (or yarn) installed
+
+### Angular CLI v16 or higher
+### Node.js v16 or higher
+### npm (or yarn) installed
 
 ## 📝 Notes
-text
-Copy
-Edit
+
 - These are learning/demo projects to explore new Angular 16 features.
 - Use them as lightweight templates or for your personal learning.
 
