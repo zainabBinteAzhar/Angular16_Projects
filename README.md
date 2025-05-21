@@ -80,7 +80,7 @@ Edit
 
 ```bash
 # Clone the repository
-git clone https://github.com/zainabBinteAzhar/angular-16-Projects.git
+git clone https://github.com/zainabBinteAzhar/angular16_Projects.git
 
 # Navigate to a project directory
 cd animations   # or cd AuthAndRole, cd dogBreeds, cd dogBreeds_NgRx, cd noteBook
